@@ -1,0 +1,19 @@
+.img {
+    max-width: 10px;
+    height: 10%;
+    width: 10%;
+    position: fixed;
+    top: 12%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.text{
+    color: black;
+}
+
+.cardview{
+    height: 50%;
+    width: 30%;
+    background-color: greenyellow;
+}
