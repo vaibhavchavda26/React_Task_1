@@ -19,10 +19,12 @@ const DeveloperCardView = (props) => {
         <div>
         <div className="cardview">
             <div className="img">
-                <img src={logo} />
+                <img src={logo} /><br />
+            </div>
+            <div class="status">
+                <h4>{status_message}</h4>
             </div>
             <div className="text">
-                <h3>{status_message}</h3>
                 <h1>{props.dev_name}</h1>
                 <h2>{props.role}</h2>
                 <h2>{props.skills}</h2>

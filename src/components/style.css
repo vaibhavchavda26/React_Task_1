@@ -1,19 +1,32 @@
 .img {
     max-width: 10px;
-    height: 10%;
-    width: 10%;
-    position: fixed;
-    top: 12%;
+    height: 30%;
+    width: 20%;
+    position: absolute;
+    top: 27%;
+    left: 10%;
     transform: translate(-50%, -50%);
     display: flex;
 }
 
+.status{
+    position: absolute;
+    top: 42%;
+    left: 13%;
+}
+
 .text{
+    position: absolute;
+    left: 40%;
     color: black;
 }
 
 .cardview{
-    height: 50%;
-    width: 30%;
+    position: absolute;
+    height: 23%;
+    width: 25%;
+    top: 10%;
+    left: 35%;
     background-color: greenyellow;
 }
+
