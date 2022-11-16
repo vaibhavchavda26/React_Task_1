@@ -8,7 +8,7 @@ function App() {
       dev_name= "Vaibhav Chavda "
       role = "Software Engineer"
       skills = "Python, Django"
-      status={false}
+      status={true}
       />
     </div>
   );

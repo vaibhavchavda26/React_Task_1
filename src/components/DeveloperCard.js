@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const DeveloperCardView = (props) => {
     let status_message 
-    let joining_date="2022-01-01"
+    let joining_date="2021-01-01"
     let join_date = moment(joining_date, "YYYYMMDD").fromNow();
 
     if(props.status){
