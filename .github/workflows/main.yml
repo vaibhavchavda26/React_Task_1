@@ -6,6 +6,20 @@ on:
       - master
 
 jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Build website
+          run: npm run build
+
   messageSlack:
     runs-on: ubuntu-latest
     steps:
@@ -13,21 +27,7 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL: actions_slack-alert
-        SLACK_TITLE: Post Title
-        # SLACK_USERNAME: BotCI
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_MESSAGE: "This is your custom message."
+        SLACK_MESSAGE: "This is Testing."
 
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-
-  #     - name: Install dependencies
-  #       run: npm install
-
-  #     - name: Build website
-  #       run: npm run build
+  
