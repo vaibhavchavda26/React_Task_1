@@ -22,8 +22,9 @@ jobs:
 
       - name: Slack Notification
         uses: act10ns/slack@v1
-        with:
+        env:
           SLACK_WEBHOOK_URL: $ {{ secrets.SLACK_WEBHOOK_URL }}
+        with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: "#cv_analytics-slack-alert"
