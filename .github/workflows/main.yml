@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Notification Slack
-      uses: rtCamp/action-slack-notify@v2
+      uses: slackapi/slack-github-action@v1.23.0
       env:
         SLACK_CHANNEL: actions_slack-alert
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
