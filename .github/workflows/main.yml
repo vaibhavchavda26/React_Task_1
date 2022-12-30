@@ -34,9 +34,10 @@ jobs:
             # mention_users: 'U0160UUNH8S,U0080UUAA9N'
             mention_users_when: 'failure,warnings,success'
             # mention_groups: 'SAZ94GDB8'
-            mention_groups_when: 'failure,warnings,success'
+            # mention_groups_when: 'failure,warnings,success'
           env:
-            SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
+            SLACK_WEBHOOK_URL: ${{ ssecrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
   # messageSlack:
   #   runs-on: ubuntu-latest
