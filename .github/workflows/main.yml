@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      SLACK_WEBHOOK_URL: $ {{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -19,3 +21,11 @@ jobs:
 
       - name: Build website
         run: npm run build
+
+      -name: Slack Notification
+      uses: act10ns/slack@v1
+      with: 
+        status: ${{ job.status }}
+        steps: ${{ toJson(steps) }}
+        channel: "#cv_analytics-slack-alert"
+      if: always()
