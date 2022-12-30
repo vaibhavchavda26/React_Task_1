@@ -18,7 +18,7 @@ const DeveloperCardView = (props) => {
     <div>
       <div className="cardview">
         <div className="img">
-          <img src={logo} alt='some value'/>
+          <img src={logo} alt='Image Logo'/>
           <br />
         </div>
         <div class="status">
