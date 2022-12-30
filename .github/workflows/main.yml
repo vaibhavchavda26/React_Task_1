@@ -1,4 +1,4 @@
-name: CI/CD for Digiqt Website
+name: Testing for Slack notifiction for Actions 
 
 on:
   push:
