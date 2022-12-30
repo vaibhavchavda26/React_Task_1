@@ -18,7 +18,7 @@ jobs:
           run: npm install
 
         - name: Build website
-          run: npm run b
+          run: npm run build
 
   messageSlack:
     runs-on: ubuntu-latest
@@ -45,6 +45,8 @@ jobs:
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      if: always()
     # - name: Notification Slack
     #   uses: slackapi/slack-github-action@v1.23.0
     #   env:
