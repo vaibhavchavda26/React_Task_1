@@ -36,7 +36,7 @@ jobs:
             # mention_groups: 'SAZ94GDB8'
             # mention_groups_when: 'failure,warnings,success'
           env:
-            SLACK_WEBHOOK_URL: ${{ ssecrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
   # messageSlack:
