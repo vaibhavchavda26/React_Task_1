@@ -4,9 +4,15 @@ import "./style.css";
 import moment from "moment";
 
 const DeveloperCardView = (props) => {
+<<<<<<< HEAD
   let status_message;
   let joining_date = "2020-01-01";
   let join_date = moment(joining_date, "YYYYMMDD").fromNow();
+=======
+    let status_message 
+    let joining_date="2021-01-01"
+    let join_date = moment(joining_date, "YYYYMMDD").fromNow();
+>>>>>>> b6d57db6d185c2212255a8fbfe994a3e2a2a1d43
 
   if (props.status) {
     status_message = <div>Online</div>;
