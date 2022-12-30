@@ -21,7 +21,8 @@ jobs:
         run: npm run build
 
       - name: Slack Notification
-        uses: act10ns/slack@v1
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
         env:
           SLACK_WEBHOOK_URL: $ {{ secrets.SLACK_WEBHOOK_URL }}
         with:
