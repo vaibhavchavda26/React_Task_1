@@ -27,5 +27,5 @@ jobs:
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          channel: "#cv_analytics-slack-alert"
+          channel: "#actions_slack-alert"
         if: always()
