@@ -18,7 +18,7 @@ jobs:
           run: npm install
 
         - name: Build website
-          run: npm run build
+          run: npm r
 
         - name: Slack Status
           if: always()
@@ -26,15 +26,11 @@ jobs:
           with:
             status: ${{ job.status }}
             notify_when: 'failure,success'
-            # notify_when: 'failure'
             notification_title: '{workflow} has {status_message}'
             message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
             footer: 'Linked to Repo <{repo_url}|{repo}>'
-            # notify_when: 'failure,success'
-            # mention_users: 'U0160UUNH8S,U0080UUAA9N'
             mention_users_when: 'failure,warnings,success'
-            # mention_groups: 'SAZ94GDB8'
-            # mention_groups_when: 'failure,warnings,success'
+
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
