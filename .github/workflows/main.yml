@@ -1,4 +1,4 @@
-name: Testing for Slack notifiction for Actions 
+name: CI/CD Digiqt Website 
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           run: npm install
 
         - name: Build website
-          run: npm r
+          run: npm run build
 
         - name: Slack Status
           if: always()
@@ -26,8 +26,7 @@ jobs:
           with:
             status: ${{ job.status }}
             notify_when: 'failure,success'
-            notification_title: '{workflow} has {status_message}'
-            message_format: '{emoji} *{workflow}*\n {status_message} in <{repo_url}|{repo}>'
+            message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
             footer: 'Linked to Repo <{repo_url}|{repo}>'
             mention_users_when: 'failure,warnings,success'
 
@@ -35,42 +34,5 @@ jobs:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-  # messageSlack:
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   steps:
-  #   - name: Slack Notification
-  #     id: slack
-  #     uses: slackapi/slack-github-action@v1.23.0
-  #     with:
-  #       payload: |
-  #         {
-  #           "icon_url": "{{CUSTOM_AUTHOR_PICTURE}}",
-  #           "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
-  #           "blocks": [
-  #             {
-  #               "type": "section",
-  #               "text": {
-  #                 "type": "mrkdwn",
-  #                 "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-  #               }
-  #             }
-  #           ]
-  #         }
-  #     env:
-  #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  #       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-  #     if: always()
-
-
-
-
-    # - name: Notification Slack
-    #   uses: slackapi/slack-github-action@v1.23.0
-    #   env:
-    #     SLACK_CHANNEL: actions_slack-alert
-    #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-    #     SLACK_MESSAGE: "This is Testing."
 
   
