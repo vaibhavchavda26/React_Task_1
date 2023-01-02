@@ -28,7 +28,7 @@ jobs:
             notify_when: 'failure,success'
             message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
             footer: 'Linked to Repo <{repo_url}|{repo}>'
-            mention_users_when: 'failure,warnings,success'
+            mention_users_when: 'success'
 
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
