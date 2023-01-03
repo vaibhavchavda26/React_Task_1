@@ -28,12 +28,9 @@ jobs:
             notify_when: 'failure,success'
             notification_title: 'CI/CD On {repo}'
             message_format: '{emoji} *{workflow}* is *{status_message}*'
-            # footer: 'Linked to Repo <{repo_url}|{repo}>'
-            # mention_users_when: 'failure,warnings,success'
+            footer: 'Linked to Repo <{repo_url}|{repo}>'
 
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-
-  
