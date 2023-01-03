@@ -1,4 +1,4 @@
-name: CI/CD Digiqt Website 
+name: Testing for Slack notifiction for Actions 
 
 on:
   push:
@@ -20,15 +20,16 @@ jobs:
         - name: Build website
           run: npm run build
 
-        - name: Slack Notification
+        - name: Slack Status
           if: always()
           uses: ravsamhq/notify-slack-action@v1
           with:
             status: ${{ job.status }}
             notify_when: 'failure,success'
+            notification_title: 'CI/CD Testing'
             message_format: '{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}>'
-            # footer: 'Linked to Repo <{repo_url}|{repo}>'
-            mention_users_when: 'failure,success,warning'
+            footer: 'Linked to Repo <{repo_url}|{repo}>'
+            mention_users_when: 'failure,warnings,success'
 
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
