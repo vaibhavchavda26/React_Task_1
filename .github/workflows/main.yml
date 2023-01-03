@@ -27,7 +27,7 @@ jobs:
             status: ${{ job.status }}
             notify_when: 'failure,success'
             notification_title: 'CI/CD On {repo}'
-            message_format: '{emoji} *{workflow}* {status_message} {no}'
+            message_format: '{emoji} *{workflow}* is <b>{status_message}</b>'
             footer: 'Linked to Repo <{repo_url}|{repo}>'
             mention_users_when: 'failure,warnings,success'
 
